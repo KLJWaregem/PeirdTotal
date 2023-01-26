@@ -1,0 +1,20 @@
+{
+  "name": "peird_total",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bufferutil": "^4.0.7",
+    "express": "^4.18.2",
+    "serve-static": "^1.15.0",
+    "utf-8-validate": "^6.0.1",
+    "ws": "^8.12.0"
+  }
+}

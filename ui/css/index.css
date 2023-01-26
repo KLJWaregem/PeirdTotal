@@ -1,0 +1,63 @@
+html{
+    background-color: black;
+}
+
+.spinner {
+    overflow: hidden;
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+}
+
+
+.item {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    top: -200px;
+    font-size: 180px;
+    text-align: center;
+    color: white;
+}
+
+.item.finish {
+    top: 0px;
+}
+
+
+.horse {
+    height:50%;
+    position:absolute;
+    top:50%;
+}
+.horse.left {
+    left:0;
+}
+.horse.right {
+    right:0;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.spinners {
+    border: white 1px solid;
+    margin: 0 auto;
+    width: 820px;
+}
+
+.spinners {
+    border: white 1px solid;
+    margin: 0 auto;
+    width: 820px;
+}
+
+.reward {
+    color: white;
+    font-size: 100px;
+    text-align: center;
+}
+.countdown {
+    color: white;
+    font-size: 100px;
+    text-align: center;
+}

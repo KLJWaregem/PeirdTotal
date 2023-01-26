@@ -1,0 +1,68 @@
+<html>
+<head>
+</head>
+<body>
+<p>
+    <label for="firstNumber">Eerste nummer</label>
+    <input type="number" id="firstNumber" name="firstNumber"/>
+</p>
+<p>
+    <label for="lastNumber">Laatste nummer</label>
+    <input type="number" id="lastNumber" name="lastNumber"/>
+</p>
+<p>
+    <label for="reward">Prijs</label>
+    <input type="text" id="reward" name="reward"/>
+</p>
+<p>
+    <label for="date">Datum van trekking</label>
+    <input type="date" id="date" name="date"/>
+</p>
+<p>
+    <label for="time">Tijd van trekking</label>
+    <input type="time" id="time" name="time"/>
+</p>
+<button type="button" onclick="Send()">Verzenden</button>
+
+<script>
+    const webSocket = new WebSocket(location.origin.replace(/^http/, 'ws').replace('3000', '3001'));
+    initWebSocket();
+
+    function Send(){
+        let message = {
+            type: "Time",
+            payload: {
+                Date: Date.parse(document.getElementById("date").value + " " + document.getElementById("time").value),
+                Reward: document.getElementById("reward").value,
+                From: document.getElementById("firstNumber").value,
+                Till: document.getElementById("lastNumber").value
+            }
+        };
+        webSocket.send(JSON.stringify(message));
+    }
+
+    function initWebSocket() {
+        webSocket.onmessage = function (e) {
+            let message = JSON.parse(e.data);
+            if (message.type === "Time") {
+                console.log(message.payload)
+                countdown = new Date(message.payload.Date);
+                reward = message.payload.Reward;
+                console.log(countdown);
+                initCountDown();
+            }
+        };
+        webSocket.onclose = function (e) {
+            setTimeout(function () {
+                initWebSocket();
+            }, 1000);
+        };
+        webSocket.onerror = function (err) {
+            console.error('Socket encountered error: ', err.message, 'Closing socket');
+            webSocket.close();
+        };
+    }
+</script>
+
+</body>
+</html>
