@@ -12,3 +12,9 @@ Application uses port 3000 and 3001.
 # Start application
 - run command "node server" in home folder
 - if pop-up request access, click allow...
+
+# Usage
+On presentation-screen, goto IP-ADDRESS:3000 and set on fullscreen.
+For control, goto IP-ADDRESS:3000/admin.html
+
+IMPORTANT: always fill in all fields, no checks are build in!
