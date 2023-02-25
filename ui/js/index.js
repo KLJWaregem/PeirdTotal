@@ -4,12 +4,27 @@ let lastRandom = 0;
 let countdown = {};
 let reward = "";
 
+let addIndex = 1;
 
 $(document).ready(() => {
     $(".countdown").hide();
     $(".spinners").hide();
+    setInterval(nextAdd, 5000);
     initWebSocket();
 });
+
+function nextAdd(){
+
+    addIndex = addIndex + 1;
+    if(addIndex === 4)
+    {
+        addIndex = 1;
+    }
+
+    console.log(addIndex)
+
+    document.getElementById("add").style.backgroundImage = "url('img/" +  addIndex + ".png')";
+}
 
 function initWebSocket() {
     let webSocket = new WebSocket(location.origin.replace(/^http/, 'ws').replace('3000', '3001'));
