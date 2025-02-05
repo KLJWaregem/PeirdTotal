@@ -6,7 +6,7 @@ Application uses port 3000 and 3001.
 
 # Instalation
 - make sure you have installed https://nodejs.org/
-- clone repository
+- clone repository or download zip (Code - Download zip)
 - run command "npm install" in home folder
 
 # Start application
