@@ -16,7 +16,7 @@ $(document).ready(() => {
 function nextAdd(){
 
     addIndex = addIndex + 1;
-    if(addIndex === 4)
+    if(addIndex === 6)
     {
         addIndex = 1;
     }
